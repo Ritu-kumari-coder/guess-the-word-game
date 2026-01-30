@@ -3,13 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Guess the Word Game - Try to guess the hidden word before running out of attempts. Built with HTML, CSS, and JavaScript.">
-    <meta name="author" content="Your Name">
-    <meta property="og:title" content="Guess The Word Game | devChallenges.io">
-    <meta property="og:description" content="Try to guess the hidden word before your attempts run out!">
-    <meta property="og:type" content="website">
-    <meta property="og:image" content="resources/preview.png">
 
+    <meta
+      name="description"
+      content="Guess the Word Game - Try to guess the hidden word before running out of attempts."
+    />
+    <meta name="author" content="Your Name" />
+
+    <title>Guess The Word Game | devChallenges.io</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="preload" href="style.css" as="style" onload="this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="style.css" /></noscript>
 
     <link
       rel="icon"
@@ -17,51 +30,59 @@
       type="image/x-icon"
       sizes="96x96"
     />
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <title>Guess The Word Game | devChallenges.io</title>
-
-    <link rel="stylesheet" href="style.css">
   </head>
-  <body>
-   
-    <section class="hero">
-      <div class="bg-word">Guess the word</div>
 
-      <div class="card">
-        <h3 class="text-medium">Word Scramblle</h3>
-        <div class="scrambled-word">
-          <h2 class="text-large"></h2>
-        </div>
-        <div class="tries">
-          <p class="text-small">Tries(<span class="n-tries"></span>/5): </p>
-          <div class="stepper">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
+  <body>
+    <main>
+      <section class="hero">
+        <!-- Decorative background text -->
+        <div class="bg-word" aria-hidden="true">Guess the word</div>
+
+        <div class="card">
+          <h3 class="text-medium">Word Scramble</h3>
+
+          <div class="scrambled-word">
+            <h2 class="text-large" aria-live="polite"></h2>
           </div>
 
-          <p class="mistakes text-small">Mistakes: <span id="mistakes"></span></p>
+          <div class="tries">
+            <p class="text-small">
+              Tries (<span class="n-tries">0</span>/5):
+            </p>
+
+            <div class="stepper" aria-hidden="true">
+              <span class="dot active"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+              <span class="dot"></span>
+            </div>
+
+            <p class="mistakes text-small">
+              Mistakes: <span id="mistakes">0</span>
+            </p>
+          </div>
+
+          <!-- Inputs -->
+          <div class="inputs" id="inputs">
+            <label for="guess-input" class="sr-only">Enter your guess</label>
+            <input
+              id="guess-input"
+              class="input-box"
+              type="text"
+              maxlength="1"
+              autocomplete="off"
+            />
+          </div>
+
+          <div class="buttons">
+            <button class="btn btn-primary" type="button">Random</button>
+            <button class="btn btn-secondary" type="button">Reset</button>
+          </div>
         </div>
+      </section>
+    </main>
 
-        <div class="inputs" id="inputs">
-          <input class="input-box" type="text">
-          
-        </div>
-
-        <div class="buttons">
-          <button class="btn btn-primary">Random</button>
-          <button class="btn btn-secondary">Reset</button>
-        </div>
-
-      </div>
-    </section>
-
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
